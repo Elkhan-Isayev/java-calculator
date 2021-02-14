@@ -1,8 +1,9 @@
 package calculator;
 
 public class Calculator {
-    public boolean run() {
-
-        return true;
+    public void run() {
+        Window window = new Window();
     }
 }
+
+
