@@ -33,6 +33,7 @@ public class Artisan {
         textField.setSize(300, 60);
         textField.setLocation(25, 25);
         textField.setVisible(true);
+        calculativeAssistEngine.setTextField(textField);
         window.add(textField);
     }
 
