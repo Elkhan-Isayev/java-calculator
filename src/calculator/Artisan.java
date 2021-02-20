@@ -58,5 +58,6 @@ public class Artisan {
         drawButton("-", 265, 275);
         drawButton("X", 265, 200);
         drawButton("/", 265, 125);
+        window.repaint();
     }
 }
