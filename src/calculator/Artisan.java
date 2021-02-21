@@ -33,6 +33,7 @@ public class Artisan {
         textField.setSize(300, 60);
         textField.setLocation(25, 25);
         textField.setVisible(true);
+        textField.setEnabled(false);
         calculativeAssistEngine.setTextField(textField);
         window.add(textField);
     }
@@ -58,7 +59,7 @@ public class Artisan {
         drawButton("-", 265, 275);
         drawButton("X", 265, 200);
         drawButton("/", 265, 125);
-        //  reDraw items
+        //  reDraw interface
         window.repaint();
     }
 }

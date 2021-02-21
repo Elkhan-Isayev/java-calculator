@@ -1,11 +1,13 @@
 package calculator;
 
-
-//  Alert: singleton used
+/*
+ * Alert: singleton used
+ */
 public class Calculator {
     private static Calculator calculator;
 
-    private Calculator() {}
+    private Calculator() {
+    }
 
     public void run() {
         //  Create layout window
@@ -17,7 +19,7 @@ public class Calculator {
     }
 
     public static synchronized Calculator getCalculator() {
-        if(calculator == null) {
+        if (calculator == null) {
             calculator = new Calculator();
         }
         return calculator;
