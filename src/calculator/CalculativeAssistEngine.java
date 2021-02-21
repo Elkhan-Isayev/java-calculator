@@ -23,33 +23,46 @@ public class CalculativeAssistEngine implements ActionListener, WindowListener {
         this.textField = textField;
     }
 
+    private void resetCalculator() {
+        firstNumber = 0;
+        secondNumber = 0;
+        selectedOperation = " ";
+        textField.setText("0");
+    }
+
     private void calculateResult() {
         switch (selectedOperation) {
-            case "+":
+            case "+" -> {
                 textField.setText(Double.toString(firstNumber + secondNumber));
-                secondNumber = 0;
+
                 firstNumber = firstNumber + secondNumber;
-                selectedOperation = " ";
-                break;
-            case "-":
+//                secondNumber = 0;
+//                selectedOperation = " ";
+            }
+            case "-" -> {
                 textField.setText(Double.toString(firstNumber - secondNumber));
-                secondNumber = 0;
+
                 firstNumber = firstNumber - secondNumber;
-                selectedOperation = " ";
-                break;
-            case "X":
+//                secondNumber = 0;
+//                selectedOperation = " ";
+            }
+            case "X" -> {
                 textField.setText(Double.toString(firstNumber * secondNumber));
-                secondNumber = 0;
+
                 firstNumber = firstNumber * secondNumber;
-                selectedOperation = " ";
-                break;
-            case "/":
+//                secondNumber = 0;
+//                selectedOperation = " ";
+            }
+            case "/" -> {
                 textField.setText(Double.toString(firstNumber / secondNumber));
-                secondNumber = 0;
                 firstNumber = firstNumber / secondNumber;
-                selectedOperation = " ";
-                break;
-            default: Helper.showMessage(Helper.startErrorMessage); break;
+//                secondNumber = 0;
+//                selectedOperation = " ";
+            }
+            default -> {
+                Helper.showMessage(Helper.startErrorMessage);
+                resetCalculator();
+            }
         }
     }
 
@@ -61,21 +74,25 @@ public class CalculativeAssistEngine implements ActionListener, WindowListener {
                 //  Addition
                 case "+":
                     selectedOperation = "+";
+                    secondNumber = 0;
                     textField.setText("0");
                     break;
                 //  Subtraction
                 case "-":
                     selectedOperation = "-";
+                    secondNumber = 0;
                     textField.setText("0");
                     break;
                 //  Multiplication
                 case "X":
                     selectedOperation = "X";
+                    secondNumber = 0;
                     textField.setText("0");
                     break;
                 //  Division
                 case "/":
                     selectedOperation = "/";
+                    secondNumber = 0;
                     textField.setText("0");
                     break;
                 //  Equality
@@ -84,14 +101,11 @@ public class CalculativeAssistEngine implements ActionListener, WindowListener {
                     break;
                 //  Clean
                 case "C":
-                    firstNumber = 0;
-                    secondNumber = 0;
-                    selectedOperation = " ";
-                    textField.setText("0");
+                    resetCalculator();
                     break;
                 //  0 1 2 3 4 5 6 7 8 9
                 default:
-                    if (selectedOperation == " ") {
+                    if (selectedOperation.equals(" ")) {
                         firstNumber = firstNumber * 10 + Double.parseDouble(buttonText);
                         textField.setText(Double.toString(firstNumber));
                     }
