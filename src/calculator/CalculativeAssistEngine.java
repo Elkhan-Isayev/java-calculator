@@ -6,10 +6,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
 
-public class CalculativeAssistEngine implements ActionListener, WindowListener {
+public class CalculativeAssistEngine implements ActionListener {
     private String selectedOperation = " ";
     private double firstNumber = 0;
     private double secondNumber = 0;
@@ -34,34 +32,29 @@ public class CalculativeAssistEngine implements ActionListener, WindowListener {
         textField.setText("0");
     }
 
+    private void setTextFieldNumber(double number) {
+        final String result = (number) % 1 == 0
+                ? Integer.toString((int) (number))
+                : Double.toString(number);
+        textField.setText(result);
+    }
+
     private void calculateResult() {
         switch (selectedOperation) {
             case "+" -> {
-                final String result = (firstNumber + secondNumber) % 1 == 0
-                        ? Integer.toString((int) (firstNumber + secondNumber))
-                        : Double.toString(firstNumber + secondNumber);
-                textField.setText(result);
+                setTextFieldNumber(firstNumber + secondNumber);
                 firstNumber = firstNumber + secondNumber;
             }
             case "-" -> {
-                final String result = (firstNumber - secondNumber) % 1 == 0
-                        ? Integer.toString((int) (firstNumber - secondNumber))
-                        : Double.toString(firstNumber - secondNumber);
-                textField.setText(result);
+                setTextFieldNumber(firstNumber - secondNumber);
                 firstNumber = firstNumber - secondNumber;
             }
             case "X" -> {
-                final String result = (firstNumber * secondNumber) % 1 == 0
-                        ? Integer.toString((int) (firstNumber * secondNumber))
-                        : Double.toString(firstNumber * secondNumber);
-                textField.setText(result);
+                setTextFieldNumber(firstNumber * secondNumber);
                 firstNumber = firstNumber * secondNumber;
             }
             case "/" -> {
-                final String result = (firstNumber / secondNumber) % 1 == 0
-                        ? Integer.toString((int) (firstNumber / secondNumber))
-                        : Double.toString(firstNumber / secondNumber);
-                textField.setText(result);
+                setTextFieldNumber(firstNumber / secondNumber);
                 firstNumber = firstNumber / secondNumber;
             }
             default -> {
@@ -104,55 +97,14 @@ public class CalculativeAssistEngine implements ActionListener, WindowListener {
                 default:
                     if (selectedOperation.equals(" ")) {
                         firstNumber = firstNumber * 10 + Double.parseDouble(buttonText);
-                        final String result = firstNumber % 1 == 0
-                                ? Integer.toString((int) firstNumber)
-                                : Double.toString(firstNumber);
-                        textField.setText(result);
+                        setTextFieldNumber(firstNumber);
                     }
                     else {
                         secondNumber = secondNumber * 10 + Double.parseDouble(buttonText);
-                        final String result = secondNumber % 1 == 0
-                                ? Integer.toString((int) secondNumber)
-                                : Double.toString(secondNumber);
-                        textField.setText(result);
+                        setTextFieldNumber(secondNumber);
                     }
                     break;
             }
         }
-    }
-
-    @Override
-    public void windowOpened(WindowEvent e) {
-
-    }
-
-    @Override
-    public void windowClosing(WindowEvent e) {
-
-    }
-
-    @Override
-    public void windowClosed(WindowEvent e) {
-
-    }
-
-    @Override
-    public void windowIconified(WindowEvent e) {
-
-    }
-
-    @Override
-    public void windowDeiconified(WindowEvent e) {
-
-    }
-
-    @Override
-    public void windowActivated(WindowEvent e) {
-
-    }
-
-    @Override
-    public void windowDeactivated(WindowEvent e) {
-
     }
 }
