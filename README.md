@@ -9,3 +9,4 @@ It's programm that help you in simple calculations in mathematics.
 ## Can I contribute?
 
 Yes you can!  Contributions are welcomed. Thank you for considering contributing to the Calculator!
+

@@ -103,20 +103,18 @@ public class CalculativeAssistEngine implements ActionListener, WindowListener {
                 //  0 1 2 3 4 5 6 7 8 9
                 default:
                     if (selectedOperation.equals(" ")) {
-                        /*
-                         * try catch   isNumber
-                         */
                         firstNumber = firstNumber * 10 + Double.parseDouble(buttonText);
-                        textField.setText(Double.toString(firstNumber));
+                        final String result = firstNumber % 1 == 0
+                                ? Integer.toString((int) firstNumber)
+                                : Double.toString(firstNumber);
+                        textField.setText(result);
                     }
                     else {
-                        /*
-                         * try catch   isNumber
-                         */
-                        System.out.println(secondNumber);
-                        System.out.println(Double.parseDouble(buttonText));
                         secondNumber = secondNumber * 10 + Double.parseDouble(buttonText);
-                        textField.setText(Double.toString(secondNumber));
+                        final String result = secondNumber % 1 == 0
+                                ? Integer.toString((int) secondNumber)
+                                : Double.toString(secondNumber);
+                        textField.setText(result);
                     }
                     break;
             }
