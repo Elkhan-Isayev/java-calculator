@@ -41,25 +41,30 @@ public class CalculativeAssistEngine implements ActionListener {
 
     private void calculateResult() {
         switch (selectedOperation) {
-            case "+" -> {
+            case "+": {
                 setTextFieldNumber(firstNumber + secondNumber);
                 firstNumber = firstNumber + secondNumber;
+                break;
             }
-            case "-" -> {
+            case "-": {
                 setTextFieldNumber(firstNumber - secondNumber);
                 firstNumber = firstNumber - secondNumber;
+                break;
             }
-            case "X" -> {
+            case "X": {
                 setTextFieldNumber(firstNumber * secondNumber);
                 firstNumber = firstNumber * secondNumber;
+                break;
             }
-            case "/" -> {
+            case "/": {
                 setTextFieldNumber(firstNumber / secondNumber);
                 firstNumber = firstNumber / secondNumber;
+                break;
             }
-            default -> {
+            default: {
                 Helper.showMessage(Helper.startErrorMessage);
                 resetCalculator();
+                break;
             }
         }
     }

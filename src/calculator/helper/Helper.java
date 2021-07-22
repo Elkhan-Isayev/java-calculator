@@ -8,7 +8,7 @@ package calculator.helper;
 import java.awt.*;
 import java.util.Arrays;
 
-public class Helper {
+public class    Helper {
     //  Create fonts
     public static final Font arialFont = new Font("Arial", Font.BOLD, 40);
     public static final Font impactFont = new Font("Impact", Font.BOLD, 40);
