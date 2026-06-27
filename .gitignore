@@ -1,3 +1,11 @@
-/.idea/
+# Build output
+/target/
 /out/
-/Java-Calculator.iml
+
+# IDE
+/.idea/
+/.vscode/
+*.iml
+
+# OS
+.DS_Store
